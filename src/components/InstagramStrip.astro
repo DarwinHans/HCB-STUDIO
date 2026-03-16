@@ -1,0 +1,80 @@
+---
+import { siteConfig } from '../data/site';
+
+const instagramImages = [
+  ...siteConfig.gallery.images,
+  ...siteConfig.team.members.map((member) => ({ src: member.image, alt: member.name })),
+];
+---
+
+<section class="instagram">
+  <div class="container instagram__header">
+    <p class="eyebrow">Siguenos en Instagram</p>
+    <a class="instagram__handle" href={siteConfig.instagramUrl} target="_blank" rel="noreferrer">
+      {siteConfig.instagramHandle}
+    </a>
+    <div class="accent-line"></div>
+  </div>
+
+  <div class="instagram__grid">
+    {instagramImages.map((image) => (
+      <a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer">
+        <img src={image.src} alt={image.alt} loading="lazy" width="600" height="600" />
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .instagram {
+    padding-top: 2rem;
+  }
+
+  .instagram__header {
+    display: grid;
+    justify-items: center;
+    gap: 0.55rem;
+    margin-bottom: 2.4rem;
+    text-align: center;
+  }
+
+  .instagram__handle {
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    font-weight: 700;
+  }
+
+  .instagram__grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .instagram__grid a {
+    overflow: hidden;
+    min-height: 11rem;
+  }
+
+  .instagram__grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 240ms ease, opacity 240ms ease;
+  }
+
+  .instagram__grid a:hover img {
+    transform: scale(1.04);
+    opacity: 0.88;
+  }
+
+  @media (max-width: 900px) {
+    .instagram__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .instagram__grid a {
+      min-height: 8.5rem;
+    }
+  }
+</style>

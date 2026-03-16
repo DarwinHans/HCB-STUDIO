@@ -1,0 +1,121 @@
+---
+import { siteConfig } from '../data/site';
+---
+
+<section id="ubicacion">
+  <div class="container location">
+    <div class="location__content">
+      <div class="section-header section-header--left">
+        <p class="eyebrow">Encuentranos</p>
+        <h2>Ubicacion</h2>
+      </div>
+
+      <div class="location__items">
+        <article class="location-item">
+          <div class="location-item__icon">⌖</div>
+          <div>
+            <h3>Direccion</h3>
+            <p>{siteConfig.location.streetAddress}</p>
+            <p>{siteConfig.location.addressLocality}, Chile</p>
+          </div>
+        </article>
+
+        <article class="location-item">
+          <div class="location-item__icon">◷</div>
+          <div>
+            <h3>Horario</h3>
+            {siteConfig.hours.map((hour) => (
+              <p>{hour}</p>
+            ))}
+          </div>
+        </article>
+
+        <article class="location-item">
+          <div class="location-item__icon">✆</div>
+          <div>
+            <h3>Contacto</h3>
+            <p>
+              <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}>{siteConfig.phone}</a>
+            </p>
+            <p>
+              <a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer">
+                {siteConfig.instagramHandle}
+              </a>
+            </p>
+            <p>
+              <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <a class="btn btn-primary" href={siteConfig.bookingUrl} target="_blank" rel="noreferrer">
+        Reservar en AgendaPro
+      </a>
+    </div>
+
+    <div class="card location__map">
+      <iframe
+        title="Mapa de HCB Studio en Valdivia"
+        src={siteConfig.location.mapEmbedUrl}
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<style>
+  .location {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .location__items {
+    display: grid;
+    gap: 1.3rem;
+    margin: 1.2rem 0 2rem;
+  }
+
+  .location-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .location-item__icon {
+    display: grid;
+    place-items: center;
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--gold);
+    font-weight: 900;
+  }
+
+  .location__map {
+    overflow: hidden;
+  }
+
+  .location__map iframe {
+    display: block;
+    width: 100%;
+    min-height: 30rem;
+    border: 0;
+    filter: saturate(0.7) contrast(1.08);
+  }
+
+  @media (max-width: 900px) {
+    .location {
+      grid-template-columns: 1fr;
+    }
+
+    .location__map iframe {
+      min-height: 22rem;
+    }
+  }
+</style>

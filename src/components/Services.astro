@@ -1,0 +1,190 @@
+---
+import { siteConfig } from '../data/site';
+
+const categories = siteConfig.serviceCategories;
+---
+
+<section id="servicios">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Nuestros servicios</p>
+      <h2>Experiencia <span class="gold">Premium</span></h2>
+    </div>
+
+    <div class="services-tabs" role="tablist" aria-label="Categorias de servicios">
+      {categories.map((category, index) => (
+        <button
+          class:list={['services-tab', { 'is-active': index === 0 }]}
+          type="button"
+          role="tab"
+          aria-selected={index === 0 ? 'true' : 'false'}
+          aria-controls={`panel-${category.id}`}
+          data-target={category.id}
+        >
+          <span class="services-tab__icon">{category.icon}</span>
+          <span>{category.label}</span>
+          <span class="services-tab__count">
+            {String(index + 1).padStart(2, '0')} / {String(categories.length).padStart(2, '0')}
+          </span>
+        </button>
+      ))}
+    </div>
+
+    {categories.map((category, categoryIndex) => (
+      <div
+        class="services-panel"
+        id={`panel-${category.id}`}
+        role="tabpanel"
+        hidden={categoryIndex === 0 ? undefined : true}
+        data-panel={category.id}
+      >
+        <div class="services-panel__grid">
+          {category.services.map((service) => (
+            <article class="card service-card">
+              <div class="service-card__copy">
+                <div class="service-card__head">
+                  <div>
+                    <h3>{service.name}</h3>
+                    <p class="service-card__meta">{service.duration}</p>
+                  </div>
+                  <strong class="service-card__price">{service.price}</strong>
+                </div>
+                <p>{service.description}</p>
+                <a class="btn btn-primary" href={siteConfig.bookingUrl} target="_blank" rel="noreferrer">
+                  Agendar servicio
+                </a>
+              </div>
+              <img
+                class="service-card__image"
+                src={service.image}
+                alt={service.name}
+                loading="lazy"
+                width="560"
+                height="360"
+              />
+            </article>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  const tabs = Array.from(
+    document.querySelectorAll<HTMLButtonElement>('.services-tab'),
+  );
+  const panels = Array.from(
+    document.querySelectorAll<HTMLDivElement>('.services-panel'),
+  );
+
+  const activateTab = (targetId: string | undefined) => {
+    if (!targetId) return;
+
+    tabs.forEach((tab) => {
+      const isActive = tab.dataset.target === targetId;
+      tab.classList.toggle('is-active', isActive);
+      tab.setAttribute('aria-selected', String(isActive));
+    });
+
+    panels.forEach((panel) => {
+      panel.hidden = panel.dataset.panel !== targetId;
+    });
+  };
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => activateTab(tab.dataset.target));
+  });
+</script>
+
+<style>
+  .services-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .services-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text);
+    padding: 0.85rem 1.1rem;
+    font: inherit;
+    cursor: pointer;
+    transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+  }
+
+  .services-tab.is-active {
+    border-color: rgba(217, 161, 45, 0.3);
+    background: rgba(217, 161, 45, 0.08);
+    transform: translateY(-1px);
+  }
+
+  .services-tab__icon {
+    color: var(--gold);
+    font-size: 1.2rem;
+  }
+
+  .services-tab__count {
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  .services-panel__grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.7fr);
+    overflow: hidden;
+  }
+
+  .service-card__copy {
+    display: grid;
+    gap: 1.25rem;
+    padding: 2rem;
+  }
+
+  .service-card__head {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .service-card__meta {
+    margin-top: 0.4rem;
+    font-weight: 700;
+  }
+
+  .service-card__price {
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    line-height: 1;
+  }
+
+  .service-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 900px) {
+    .service-card {
+      grid-template-columns: 1fr;
+    }
+
+    .service-card__image {
+      min-height: 17rem;
+      order: -1;
+    }
+  }
+</style>

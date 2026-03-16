@@ -1,0 +1,77 @@
+---
+import { siteConfig } from '../data/site';
+---
+
+<section id="top" class="hero">
+  <div class="hero__backdrop" aria-hidden="true"></div>
+  <div class="container hero__content">
+    <p class="eyebrow">{siteConfig.hero.eyebrow}</p>
+    <h1 class="hero__title">
+      <span class="gold">{siteConfig.hero.title[0]}</span>
+      <span>{siteConfig.hero.title[1]}</span>
+    </h1>
+    <p class="hero__description">{siteConfig.hero.description}</p>
+    <div class="hero__actions">
+      <a class="btn btn-primary" href={siteConfig.bookingUrl} target="_blank" rel="noreferrer">
+        {siteConfig.hero.primaryCta}
+      </a>
+      <a class="btn btn-secondary" href="#servicios">
+        {siteConfig.hero.secondaryCta}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: calc(100vh - 5.4rem);
+    display: grid;
+    place-items: center;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    overflow: clip;
+  }
+
+  .hero__backdrop {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(17, 13, 11, 0.45), rgba(17, 13, 11, 0.78)),
+      radial-gradient(circle at 50% 35%, rgba(217, 161, 45, 0.14), transparent 25%),
+      url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1800&q=80')
+        center/cover no-repeat;
+    transform: scale(1.03);
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 1.35rem;
+    text-align: center;
+  }
+
+  .hero__title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 1rem;
+    font-size: clamp(5rem, 14vw, 9rem);
+    letter-spacing: -0.05em;
+  }
+
+  .hero__description {
+    max-width: 54rem;
+    margin: 0 auto;
+    color: rgba(244, 238, 231, 0.88);
+    font-size: clamp(1.05rem, 2vw, 1.5rem);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.75rem;
+  }
+</style>

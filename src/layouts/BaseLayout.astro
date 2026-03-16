@@ -1,0 +1,225 @@
+---
+import { businessJsonLd, siteConfig } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = siteConfig.seo.title,
+  description = siteConfig.seo.description,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={siteConfig.seo.keywords.join(', ')} />
+    <meta name="theme-color" content="#171311" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonical} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${siteConfig.siteUrl}${siteConfig.seo.ogImage}`} />
+    <meta property="og:locale" content="es_CL" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteConfig.siteUrl}${siteConfig.seo.ogImage}`} />
+    <title>{title}</title>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(businessJsonLd)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #171311;
+    --bg-soft: #221c18;
+    --bg-card: rgba(43, 35, 30, 0.92);
+    --surface: #2a221d;
+    --surface-strong: #332a24;
+    --text: #f4eee7;
+    --muted: #b9aca2;
+    --line: rgba(255, 255, 255, 0.08);
+    --gold: #d9a12d;
+    --gold-soft: #f0c152;
+    --container: min(1180px, calc(100% - 2rem));
+    --shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    color: var(--text);
+    background:
+      radial-gradient(circle at top, rgba(217, 161, 45, 0.08), transparent 30%),
+      linear-gradient(180deg, #191310 0%, #171311 24%, #130f0d 100%);
+    font-family: 'Manrope', sans-serif;
+    line-height: 1.6;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  section {
+    position: relative;
+    padding: 6rem 0;
+  }
+
+  .container {
+    width: var(--container);
+    margin: 0 auto;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+
+  .section-header--left {
+    text-align: left;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    margin-bottom: 0.85rem;
+    color: var(--gold);
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.4rem;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  .brand-wordmark {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    line-height: 0.95;
+  }
+
+  h2 {
+    font-size: clamp(3rem, 7vw, 5.2rem);
+  }
+
+  h3 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+  }
+
+  p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.02rem;
+  }
+
+  .gold {
+    color: var(--gold);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    border: 1px solid transparent;
+    border-radius: 0.9rem;
+    padding: 1rem 1.55rem;
+    font-size: 0.96rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition:
+      transform 180ms ease,
+      background 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease;
+  }
+
+  .btn:hover,
+  .btn:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    color: #171311;
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+    box-shadow: 0 18px 40px rgba(217, 161, 45, 0.24);
+  }
+
+  .btn-secondary {
+    border-color: rgba(217, 161, 45, 0.35);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text);
+  }
+
+  .card {
+    border: 1px solid var(--line);
+    border-radius: 1.5rem;
+    background: var(--bg-card);
+    box-shadow: var(--shadow);
+  }
+
+  .accent-line {
+    width: 4.5rem;
+    height: 2px;
+    margin-top: 1.2rem;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  @media (max-width: 900px) {
+    section {
+      padding: 4.6rem 0;
+    }
+
+    h2 {
+      line-height: 1;
+    }
+  }
+</style>

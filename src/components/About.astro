@@ -1,0 +1,67 @@
+---
+import { siteConfig } from '../data/site';
+---
+
+<section id="nosotros">
+  <div class="container about">
+    <div class="about__intro">
+      <span class="eyebrow">01</span>
+      <h2>{siteConfig.about.title}</h2>
+      <p class="about__kicker">{siteConfig.about.kicker}</p>
+      <div class="accent-line"></div>
+    </div>
+
+    <div class="about__content">
+      <p class="about__lead">{siteConfig.about.lead}</p>
+      <div class="about__columns">
+        {siteConfig.about.paragraphs.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .about__kicker {
+    margin-top: 1rem;
+    color: rgba(244, 238, 231, 0.68);
+    font-weight: 700;
+    letter-spacing: 0.32rem;
+    text-transform: uppercase;
+  }
+
+  .about__content {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .about__lead {
+    color: var(--gold-soft);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4.8vw, 3.7rem);
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.08;
+  }
+
+  .about__columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .about,
+    .about__columns {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
