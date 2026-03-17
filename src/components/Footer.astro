@@ -7,7 +7,15 @@ const currentYear = new Date().getFullYear();
 <footer class="site-footer">
   <div class="container site-footer__inner">
     <div>
-      <p class="brand-wordmark"><span class="gold">{siteConfig.brand.shortName}</span> Studio</p>
+      <img
+        class="site-footer__logo"
+        src={siteConfig.brand.logo.src}
+        alt={siteConfig.brand.logo.alt}
+        width={siteConfig.brand.logo.width}
+        height={siteConfig.brand.logo.height}
+        loading="lazy"
+        decoding="async"
+      />
       <p>{siteConfig.brand.tagline}, Chile</p>
     </div>
     <p>© {currentYear} HCB Studio. Todos los derechos reservados.</p>
@@ -26,5 +34,13 @@ const currentYear = new Date().getFullYear();
     justify-content: space-between;
     gap: 1rem;
     align-items: center;
+  }
+
+  .site-footer__logo {
+    display: block;
+    width: auto;
+    height: 36px;
+    margin-bottom: 0.45rem;
+    max-width: min(220px, 60vw);
   }
 </style>

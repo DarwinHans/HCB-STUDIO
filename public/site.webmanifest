@@ -1,21 +1,21 @@
 {
-  "name": "HCB Studio",
-  "short_name": "HCB Studio",
-  "description": "Barberia premium en Valdivia, Chile.",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#171311",
-  "theme_color": "#171311",
+  "name": "MyWebSite",
+  "short_name": "MySite",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "48x48 32x32 16x16",
-      "type": "image/x-icon"
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ]
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
 }

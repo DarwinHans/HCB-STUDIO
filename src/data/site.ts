@@ -4,6 +4,12 @@ export const siteConfig = {
     name: 'HCB Studio',
     shortName: 'HCB',
     tagline: 'Barberia premium en Valdivia',
+    logo: {
+      src: '/logo.svg',
+      alt: 'HCB Studio',
+      width: 220,
+      height: 60,
+    },
   },
   seo: {
     title: 'HCB Studio | Barberia premium en Valdivia',

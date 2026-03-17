@@ -1,4 +1,12 @@
-# Astro Starter Kit: Minimal
+# HCB Studio
+
+## Logo recomendado
+
+- Logo principal: `public/logo.svg`
+- Formato ideal: `SVG`
+- Mesa de trabajo recomendada: `220 x 60 px`
+- Altura visible en navbar: `40 px` desktop, `34 px` mobile
+- Version para compartir: `public/og-image.svg` o una imagen `1200 x 630 px`
 
 ```sh
 pnpm create astro@latest -- --template minimal

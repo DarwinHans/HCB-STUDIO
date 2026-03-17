@@ -4,20 +4,40 @@ import { siteConfig } from '../data/site';
 
 <section id="top" class="hero">
   <div class="hero__backdrop" aria-hidden="true"></div>
-  <div class="container hero__content">
-    <p class="eyebrow">{siteConfig.hero.eyebrow}</p>
-    <h1 class="hero__title">
-      <span class="gold">{siteConfig.hero.title[0]}</span>
-      <span>{siteConfig.hero.title[1]}</span>
-    </h1>
-    <p class="hero__description">{siteConfig.hero.description}</p>
-    <div class="hero__actions">
-      <a class="btn btn-primary" href={siteConfig.bookingUrl} target="_blank" rel="noreferrer">
-        {siteConfig.hero.primaryCta}
-      </a>
-      <a class="btn btn-secondary" href="#servicios">
-        {siteConfig.hero.secondaryCta}
-      </a>
+  <div class="container hero__layout">
+    <div class="hero__copy">
+      <p class="hero__eyebrow">{siteConfig.hero.eyebrow}</p>
+
+      <h1 class="hero__title">
+        <span>{siteConfig.hero.title[0]}</span>
+        <span class="hero__title-accent">{siteConfig.hero.title[1]}</span>
+      </h1>
+
+      <p class="hero__description">{siteConfig.hero.description}</p>
+
+      <div class="hero__actions">
+        <a class="btn btn-primary" href={siteConfig.bookingUrl} target="_blank" rel="noreferrer">
+          {siteConfig.hero.primaryCta}
+        </a>
+        <a class="hero__link" href="#servicios">
+          {siteConfig.hero.secondaryCta}
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <div class="hero__grid"></div>
+      <div class="hero__logo-shell">
+        <img
+          class="hero__logo"
+          src={siteConfig.brand.logo.src}
+          alt=""
+          width="900"
+          height="900"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
     </div>
   </div>
 </section>
@@ -26,9 +46,8 @@ import { siteConfig } from '../data/site';
   .hero {
     min-height: calc(100vh - 5.4rem);
     display: grid;
-    place-items: center;
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+    align-items: center;
+    padding: 4rem 0 6rem;
     overflow: clip;
   }
 
@@ -36,42 +55,255 @@ import { siteConfig } from '../data/site';
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(180deg, rgba(17, 13, 11, 0.45), rgba(17, 13, 11, 0.78)),
-      radial-gradient(circle at 50% 35%, rgba(217, 161, 45, 0.14), transparent 25%),
-      url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1800&q=80')
-        center/cover no-repeat;
-    transform: scale(1.03);
+      linear-gradient(180deg, rgba(10, 9, 8, 0.86), rgba(10, 9, 8, 0.94)),
+      radial-gradient(circle at 18% 22%, rgba(217, 161, 45, 0.08), transparent 20%),
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: auto, auto, 120px 120px, 120px 120px;
+    background-position: center, center, center, center;
   }
 
-  .hero__content {
+  .hero__layout {
     position: relative;
     z-index: 1;
     display: grid;
-    gap: 1.35rem;
-    text-align: center;
+    grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+    align-items: center;
+    gap: clamp(2rem, 4vw, 4.5rem);
+  }
+
+  .hero__copy {
+    max-width: 40rem;
+  }
+
+  .hero__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    color: rgba(244, 238, 231, 0.65);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.45rem;
+    text-transform: uppercase;
+  }
+
+  .hero__eyebrow::before {
+    content: '';
+    width: 3.25rem;
+    height: 1px;
+    background: rgba(244, 238, 231, 0.35);
   }
 
   .hero__title {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0 1rem;
-    font-size: clamp(5rem, 14vw, 9rem);
-    letter-spacing: -0.05em;
+    display: grid;
+    gap: 0.25rem;
+    font-size: clamp(4.8rem, 11vw, 8.6rem);
+    letter-spacing: -0.055em;
+    line-height: 0.88;
+  }
+
+  .hero__title-accent {
+    color: rgba(244, 238, 231, 0.6);
+    font-style: italic;
   }
 
   .hero__description {
-    max-width: 54rem;
-    margin: 0 auto;
-    color: rgba(244, 238, 231, 0.88);
-    font-size: clamp(1.05rem, 2vw, 1.5rem);
+    max-width: 34rem;
+    margin-top: 1.75rem;
+    color: rgba(244, 238, 231, 0.68);
+    font-size: clamp(1.08rem, 1.8vw, 1.5rem);
+    line-height: 1.75;
   }
 
   .hero__actions {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 0.75rem;
+    align-items: center;
+    gap: 1.1rem 1.5rem;
+    margin-top: 2.2rem;
+  }
+
+  .hero__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: rgba(244, 238, 231, 0.68);
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.28rem;
+    text-transform: uppercase;
+    transition: color 180ms ease, transform 180ms ease;
+  }
+
+  .hero__link::after {
+    content: '→';
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .hero__link:hover,
+  .hero__link:focus-visible {
+    color: var(--text);
+    transform: translateX(2px);
+  }
+
+  .hero__visual {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: min(78vh, 900px);
+  }
+
+  .hero__grid {
+    position: absolute;
+    inset: 2% 2%;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 68px 68px;
+    mask-image: radial-gradient(circle at center, black 62%, transparent 100%);
+  }
+
+  .hero__logo-shell {
+    position: relative;
+    width: min(50vw, 760px);
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+
+  .hero__logo {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 162%;
+    max-width: none;
+    height: auto;
+    transform: translate(-50%, -48%);
+    filter: drop-shadow(0 32px 80px rgba(0, 0, 0, 0.45));
+    opacity: 0.96;
+  }
+
+  @media (max-width: 1100px) {
+    .hero__layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .hero__copy {
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .hero__eyebrow {
+      justify-content: center;
+    }
+
+    .hero__description {
+      margin-inline: auto;
+    }
+
+    .hero__actions {
+      justify-content: center;
+    }
+
+    .hero__visual {
+      min-height: auto;
+      padding-top: 0.5rem;
+    }
+
+    .hero__logo-shell {
+      width: min(78vw, 620px);
+    }
+
+    .hero__logo {
+      width: 160%;
+      transform: translate(-50%, -46%);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .hero {
+      min-height: auto;
+      padding: 2.4rem 0 4rem;
+    }
+
+    .hero__eyebrow {
+      gap: 0.8rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.28rem;
+    }
+
+    .hero__eyebrow::before {
+      width: 2rem;
+    }
+
+    .hero__title {
+      font-size: clamp(3.2rem, 17vw, 5rem);
+    }
+
+    .hero__description {
+      margin-top: 1.2rem;
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .hero__actions {
+      gap: 0.9rem 1rem;
+      margin-top: 1.8rem;
+    }
+
+    .hero__actions .btn {
+      width: min(100%, 18rem);
+    }
+
+    .hero__link {
+      justify-content: center;
+      width: 100%;
+      font-size: 0.84rem;
+      letter-spacing: 0.22rem;
+    }
+
+    .hero__visual {
+      padding-top: 0;
+    }
+
+    .hero__logo-shell {
+      width: min(88vw, 460px);
+    }
+
+    .hero__logo {
+      width: 154%;
+      transform: translate(-50%, -44%);
+    }
+
+    .hero__grid {
+      inset: 4% 4%;
+      background-size: 48px 48px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .hero__eyebrow {
+      letter-spacing: 0.18rem;
+      font-size: 0.68rem;
+    }
+
+    .hero__title {
+      font-size: clamp(2.9rem, 16vw, 4.2rem);
+    }
+
+    .hero__description {
+      font-size: 0.95rem;
+    }
+
+    .hero__logo-shell {
+      width: min(90vw, 380px);
+    }
+
+    .hero__logo {
+      width: 148%;
+      transform: translate(-50%, -44%);
+    }
   }
 </style>

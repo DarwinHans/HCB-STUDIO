@@ -5,7 +5,15 @@ import { siteConfig } from '../data/site';
 <header class="site-header">
   <div class="container site-header__inner">
     <a class="site-header__brand" href="#top" aria-label="Ir al inicio de HCB Studio">
-      <span class="brand-wordmark"><span class="gold">{siteConfig.brand.shortName}</span> Studio</span>
+      <img
+        class="site-header__logo"
+        src={siteConfig.brand.logo.src}
+        alt={siteConfig.brand.logo.alt}
+        width={siteConfig.brand.logo.width}
+        height={siteConfig.brand.logo.height}
+        loading="eager"
+        decoding="async"
+      />
     </a>
 
     <nav class="site-header__nav" aria-label="Principal">
@@ -40,7 +48,16 @@ import { siteConfig } from '../data/site';
 
   .site-header__brand {
     flex-shrink: 0;
-    font-size: 1.15rem;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .site-header__logo {
+    width: auto;
+    height: 56px;
+    max-width: min(280px, 48vw);
   }
 
   .site-header__nav {
@@ -49,6 +66,7 @@ import { siteConfig } from '../data/site';
     align-items: center;
     justify-content: center;
     gap: 1.75rem;
+    flex: 1 1 auto;
   }
 
   .site-header__nav a {
@@ -68,18 +86,55 @@ import { siteConfig } from '../data/site';
 
   @media (max-width: 900px) {
     .site-header__inner {
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 0.75rem 0;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 1rem 1.25rem;
+      padding: 0.9rem 0 1rem;
+    }
+
+    .site-header__cta {
+      justify-self: end;
     }
 
     .site-header__nav {
-      order: 3;
+      grid-column: 1 / -1;
       width: 100%;
       gap: 1rem 1.25rem;
-      padding-bottom: 0.25rem;
-      overflow-x: auto;
-      justify-content: flex-start;
+      padding-top: 0.25rem;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .site-header__inner {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: 0.85rem;
+    }
+
+    .site-header__brand,
+    .site-header__cta {
+      justify-self: center;
+    }
+
+    .site-header__logo {
+      height: 46px;
+      max-width: 200px;
+    }
+
+    .site-header__nav {
+      gap: 0.8rem 1.5rem;
+      padding-top: 0;
+    }
+
+    .site-header__nav a {
+      font-size: 0.95rem;
+    }
+
+    .site-header__cta {
+      width: min(100%, 15rem);
+      padding-inline: 1.2rem;
     }
   }
 </style>
