@@ -5,186 +5,324 @@ const categories = siteConfig.serviceCategories;
 ---
 
 <section id="servicios">
-  <div class="container">
-    <div class="section-header">
-      <p class="eyebrow">Nuestros servicios</p>
-      <h2>Experiencia <span class="gold">Premium</span></h2>
+  <div class="container services">
+    <div class="services__header">
+      <div class="services__title-block">
+        <p class="services__eyebrow">Servicios</p>
+        <h2>
+          Nuestros <span>Servicios</span>
+        </h2>
+      </div>
+
+      <a class="services__booking-link" href={siteConfig.bookingUrl} target="_blank" rel="noreferrer">
+        Agendar online
+      </a>
     </div>
 
-    <div class="services-tabs" role="tablist" aria-label="Categorias de servicios">
-      {categories.map((category, index) => (
-        <button
-          class:list={['services-tab', { 'is-active': index === 0 }]}
-          type="button"
-          role="tab"
-          aria-selected={index === 0 ? 'true' : 'false'}
-          aria-controls={`panel-${category.id}`}
-          data-target={category.id}
-        >
-          <span class="services-tab__icon">{category.icon}</span>
-          <span>{category.label}</span>
-          <span class="services-tab__count">
-            {String(index + 1).padStart(2, '0')} / {String(categories.length).padStart(2, '0')}
-          </span>
-        </button>
+    <div class="services__accordion">
+      {categories.map((category) => (
+        <details class="services-group" open>
+          <summary class="services-group__summary">
+            <span class="services-group__label">
+              <span class="services-group__icon" aria-hidden="true">{category.icon}</span>
+              <span>{category.label}</span>
+            </span>
+            <span class="services-group__toggle" aria-hidden="true"></span>
+          </summary>
+
+          <div class="services-group__panel">
+            <div class="services-group__grid">
+              {category.services.map((service) => (
+                <article class="service-card">
+                  <div class="service-card__body">
+                    <h3>{service.name}</h3>
+                    <strong class="service-card__price">{service.price}</strong>
+                    <p>{service.description}</p>
+                  </div>
+
+                  <a
+                    class="service-card__cta"
+                    href={siteConfig.bookingUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Agendar servicio
+                  </a>
+                </article>
+              ))}
+            </div>
+          </div>
+        </details>
       ))}
     </div>
-
-    {categories.map((category, categoryIndex) => (
-      <div
-        class="services-panel"
-        id={`panel-${category.id}`}
-        role="tabpanel"
-        hidden={categoryIndex === 0 ? undefined : true}
-        data-panel={category.id}
-      >
-        <div class="services-panel__grid">
-          {category.services.map((service) => (
-            <article class="card service-card">
-              <div class="service-card__copy">
-                <div class="service-card__head">
-                  <div>
-                    <h3>{service.name}</h3>
-                    <p class="service-card__meta">{service.duration}</p>
-                  </div>
-                  <strong class="service-card__price">{service.price}</strong>
-                </div>
-                <p>{service.description}</p>
-                <a class="btn btn-primary" href={siteConfig.bookingUrl} target="_blank" rel="noreferrer">
-                  Agendar servicio
-                </a>
-              </div>
-              <img
-                class="service-card__image"
-                src={service.image}
-                alt={service.name}
-                loading="lazy"
-                width="560"
-                height="360"
-              />
-            </article>
-          ))}
-        </div>
-      </div>
-    ))}
   </div>
 </section>
 
-<script>
-  const tabs = Array.from(
-    document.querySelectorAll<HTMLButtonElement>('.services-tab'),
-  );
-  const panels = Array.from(
-    document.querySelectorAll<HTMLDivElement>('.services-panel'),
-  );
-
-  const activateTab = (targetId: string | undefined) => {
-    if (!targetId) return;
-
-    tabs.forEach((tab) => {
-      const isActive = tab.dataset.target === targetId;
-      tab.classList.toggle('is-active', isActive);
-      tab.setAttribute('aria-selected', String(isActive));
-    });
-
-    panels.forEach((panel) => {
-      panel.hidden = panel.dataset.panel !== targetId;
-    });
-  };
-
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => activateTab(tab.dataset.target));
-  });
-</script>
-
 <style>
-  .services-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 2rem;
+  #servicios {
+    background:
+      radial-gradient(circle at 12% 14%, rgba(217, 161, 45, 0.16), transparent 24%),
+      radial-gradient(circle at 82% 22%, rgba(217, 161, 45, 0.08), transparent 20%),
+      linear-gradient(180deg, #191310 0%, #171311 38%, #130f0d 100%);
+    color: var(--text);
   }
 
-  .services-tab {
+  .services {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .services__header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .services__title-block {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .services__eyebrow {
+    margin: 0;
+    color: var(--gold);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.34rem;
+    text-transform: uppercase;
+  }
+
+  .services__title-block h2 {
+    color: var(--text);
+    font-size: clamp(3rem, 7vw, 5.1rem);
+    line-height: 0.92;
+  }
+
+  .services__title-block h2 span {
+    color: rgba(244, 238, 231, 0.58);
+    font-style: italic;
+  }
+
+  .services__booking-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.8rem;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.03);
-    color: var(--text);
-    padding: 0.85rem 1.1rem;
-    font: inherit;
-    cursor: pointer;
-    transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+    gap: 0.55rem;
+    color: rgba(244, 238, 231, 0.68);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.28rem;
+    text-transform: uppercase;
+    transition: color 180ms ease, transform 180ms ease;
   }
 
-  .services-tab.is-active {
-    border-color: rgba(217, 161, 45, 0.3);
-    background: rgba(217, 161, 45, 0.08);
-    transform: translateY(-1px);
-  }
-
-  .services-tab__icon {
-    color: var(--gold);
-    font-size: 1.2rem;
-  }
-
-  .services-tab__count {
-    color: var(--muted);
-    font-weight: 700;
-  }
-
-  .services-panel__grid {
-    display: grid;
-    gap: 1.5rem;
-  }
-
-  .service-card {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.7fr);
-    overflow: hidden;
-  }
-
-  .service-card__copy {
-    display: grid;
-    gap: 1.25rem;
-    padding: 2rem;
-  }
-
-  .service-card__head {
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  .service-card__meta {
-    margin-top: 0.4rem;
-    font-weight: 700;
-  }
-
-  .service-card__price {
-    color: var(--gold);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
+  .services__booking-link::after {
+    content: '->';
+    font-size: 0.8rem;
     line-height: 1;
   }
 
-  .service-card__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .services__booking-link:hover,
+  .services__booking-link:focus-visible {
+    color: var(--gold-soft);
+    transform: translateX(2px);
+  }
+
+  .services__accordion {
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .services-group {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .services-group:first-child {
+    border-top: 1px solid var(--line);
+  }
+
+  .services-group summary {
+    list-style: none;
+  }
+
+  .services-group summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .services-group__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    cursor: pointer;
+  }
+
+  .services-group__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.7rem, 2vw, 2.2rem);
+    font-weight: 700;
+  }
+
+  .services-group__icon {
+    color: var(--gold);
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+
+  .services-group__toggle {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    flex: 0 0 auto;
+  }
+
+  .services-group__toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.52rem;
+    height: 0.52rem;
+    border-right: 1px solid rgba(240, 193, 82, 0.86);
+    border-bottom: 1px solid rgba(240, 193, 82, 0.86);
+    transition: transform 180ms ease;
+    transform: translate(-50%, -62%) rotate(45deg);
+  }
+
+  .services-group[open] .services-group__toggle::before {
+    transform: translate(-50%, -32%) rotate(-135deg);
+  }
+
+  .services-group__panel {
+    padding: 0 0 1.6rem;
+  }
+
+  .services-group__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: 15.5rem;
+    padding: 1.4rem;
+    border: 1px solid rgba(217, 161, 45, 0.14);
+    border-radius: 1.2rem;
+    background: linear-gradient(180deg, rgba(43, 35, 30, 0.94), rgba(34, 28, 24, 0.98));
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.22);
+    transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .service-card:hover,
+  .service-card:focus-within {
+    border-color: rgba(217, 161, 45, 0.28);
+    transform: translateY(-2px);
+    box-shadow: 0 28px 54px rgba(0, 0, 0, 0.28);
+  }
+
+  .service-card__body {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .service-card__body h3 {
+    color: var(--text);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 2vw, 2rem);
+    line-height: 1;
+  }
+
+  .service-card__price {
+    color: var(--gold-soft);
+    font-size: 1.28rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+  }
+
+  .service-card__body p {
+    max-width: 52ch;
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.72;
+  }
+
+  .service-card__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: start;
+    min-height: 2.8rem;
+    padding: 0.8rem 1.1rem;
+    border-radius: 0.9rem;
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+    box-shadow: 0 16px 32px rgba(217, 161, 45, 0.2);
+    color: #171311;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.22rem;
+    text-transform: uppercase;
+    transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+  }
+
+  .service-card__cta:hover,
+  .service-card__cta:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(217, 161, 45, 0.28);
+    filter: brightness(1.03);
   }
 
   @media (max-width: 900px) {
-    .service-card {
+    .services__header {
+      align-items: start;
+      flex-direction: column;
+      padding-bottom: 1.3rem;
+    }
+
+    .services-group__grid {
       grid-template-columns: 1fr;
     }
 
-    .service-card__image {
-      min-height: 17rem;
-      order: -1;
+    .service-card {
+      min-height: auto;
+    }
+
+    .service-card__body p {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .services-group__summary {
+      padding: 0.9rem 0;
+    }
+
+    .services-group__label {
+      gap: 0.6rem;
+      font-size: 1.55rem;
+    }
+
+    .service-card {
+      padding: 1.15rem;
+    }
+
+    .service-card__body h3 {
+      font-size: 1.42rem;
+    }
+
+    .service-card__cta {
+      width: 100%;
     }
   }
 </style>

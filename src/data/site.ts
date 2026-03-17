@@ -89,22 +89,67 @@ export const siteConfig = {
             'https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=1200&q=80',
         },
         {
-          name: 'Corte premium + lavado',
-          duration: '1 hr 15 min',
-          price: '$18.000',
+          name: 'Corte de cabello + ceja',
+          duration: '1 hr',
+          price: '$17.000',
           description:
-            'Ritual completo con lavado, secado y acabado para mantener una imagen impecable en cualquier ocasion.',
+            'Corte de cabello con estudio de estructura craneal y perfilado de cejas para un acabado mas limpio y definido.',
           image:
             'https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1200&q=80',
         },
         {
-          name: 'Corte y asesoramiento',
-          duration: '1 hr',
-          price: '$17.000',
+          name: 'Perfilado de corte',
+          duration: '30 min',
+          price: '$9.000',
           description:
-            'Analisis de estilo y recomendacion profesional segun rostro, textura y rutina de cuidado.',
+            'Limpieza de contorno de corte de cabello, definiendo terminaciones en patilla y nuca para refrescar tu estilo.',
           image:
             'https://images.unsplash.com/photo-1503951458645-643d53bfd90f?auto=format&fit=crop&w=1200&q=80',
+        },
+        {
+          name: 'Perfilado de corte mas perfilado de barba simple',
+          duration: '45 min',
+          price: '$18.000',
+          description:
+            'Limpieza de contorno de corte de cabello en patilla y nuca, complementado con perfilado de barba simple realizado con maquinas.',
+          image:
+            'https://images.unsplash.com/photo-1512690459411-b0d9c4022c48?auto=format&fit=crop&w=1200&q=80',
+        },
+        {
+          name: 'Corte de cabello mas perfilado de barba simple',
+          duration: '1 hr 30 min',
+          price: '$23.000',
+          description:
+            'Corte de cabello con previo estudio de estructura craneal que ayude a estilizar y rejuvenecer tu apariencia, junto a perfilado de barba simple.',
+          image:
+            'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1200&q=80',
+        },
+        {
+          name: 'Corte de cabello mas perfilado de barba ritual',
+          duration: '2 hrs',
+          price: '$28.000',
+          description:
+            'Corte de cabello con previo estudio de estructura craneal y ritual de barba premium para una experiencia completa de cuidado masculino.',
+          image:
+            'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1200&q=80',
+        },
+        {
+          name: 'Corte de cabello, perfilado de barba ritual mas perfilado de cejas',
+          duration: '2 hrs',
+          price: '$30.000',
+          description:
+            'Servicio integral con corte de cabello, perfilado de barba ritual y perfilado de cejas, incluyendo peinado y terminaciones de alto detalle.',
+          image:
+            'https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1200&q=80',
+        },
+        {
+          name: 'Corte de cabello, perfilado de barba simple mas perfilado de cejas',
+          duration: '2 hrs',
+          price: '$28.000',
+          description:
+            'Corte de cabello con estudio previo, perfilado de barba simple y perfilado de cejas para lograr una imagen prolija y armoniosa.',
+          image:
+            'https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=1200&q=80',
         },
       ],
     },
@@ -155,20 +200,23 @@ export const siteConfig = {
     title: 'Profesionales de Elite',
     members: [
       {
-        name: 'Felipe Seguel',
-        role: 'Barbero senior',
-        bio:
-          'Especialista en cortes clasicos y modernos con enfoque en detalle, precision y una experiencia cercana para cada cliente.',
-        image:
-          'https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=1200&q=80',
-      },
-      {
         name: 'Hernan Castillo',
-        role: 'Barbero senior',
         bio:
           'Experto en perfilado de barba y tecnicas de afeitado ritual, transformando cada visita en una experiencia premium de cuidado masculino.',
-        image:
-          'https://images.unsplash.com/photo-1503951458645-643d53bfd90f?auto=format&fit=crop&w=1200&q=80',
+        image: '/team/hernan.png',
+        imageAlt: 'Hernan Castillo trabajando en un servicio de barberia',
+        instagramHandle: '@hernan_hcb',
+        instagramUrl:
+          'https://www.instagram.com/hernan_hcb?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn8Vdg4I0CCBmXEXMC1VPfzvUuOaG2w_Z9vMWUU5_dUt2XpUTGVK_Rj6TnPis_aem_t2JbeB-W24GOIPHfgHkCLw',
+      },
+      {
+        name: 'Felipe Seguel',
+        bio:
+          'Especialista en cortes clasicos y modernos con enfoque en detalle, precision y una experiencia cercana para cada cliente.',
+        image: '/team/felipe.png',
+        imageAlt: 'Felipe Seguel realizando un corte de cabello',
+        instagramHandle: '@felipeignacio.barbero',
+        instagramUrl: 'https://www.instagram.com/felipeignacio.barbero/',
       },
     ],
   },

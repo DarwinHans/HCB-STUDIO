@@ -3,8 +3,8 @@ import { siteConfig } from '../data/site';
 ---
 
 <section id="equipo">
-  <div class="container">
-    <div class="section-header">
+  <div class="container team">
+    <div class="team__header">
       <p class="eyebrow">{siteConfig.team.kicker}</p>
       <h2>
         Profesionales de <span class="gold">Elite</span>
@@ -13,12 +13,37 @@ import { siteConfig } from '../data/site';
 
     <div class="team-grid">
       {siteConfig.team.members.map((member) => (
-        <article class="card team-card">
-          <img src={member.image} alt={member.name} loading="lazy" width="720" height="900" />
+        <article class="team-card">
+          <div class="team-card__frame">
+            <div class="team-card__portrait">
+              {member.image ? (
+                <img
+                  src={member.image}
+                  alt={member.imageAlt ?? member.name}
+                  loading="lazy"
+                  width="800"
+                  height="800"
+                />
+              ) : (
+                <div class="team-card__portrait-ring">
+                  <span class="team-card__portrait-text">Imagen pendiente</span>
+                </div>
+              )}
+            </div>
+          </div>
+
           <div class="team-card__body">
             <h3>{member.name}</h3>
-            <p class="team-card__role">{member.role}</p>
+            <div class="team-card__divider" aria-hidden="true">
+              <span></span>
+              <i></i>
+              <span></span>
+            </div>
             <p>{member.bio}</p>
+
+            <a href={member.instagramUrl} target="_blank" rel="noreferrer">
+              {member.instagramHandle}
+            </a>
           </div>
         </article>
       ))}
@@ -27,38 +52,170 @@ import { siteConfig } from '../data/site';
 </section>
 
 <style>
+  .team {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .team__header {
+    text-align: center;
+  }
+
   .team-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.8rem;
+    gap: 2rem;
   }
 
   .team-card {
+    padding: 2rem 1.7rem 2.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(43, 35, 30, 0.94), rgba(34, 28, 24, 0.98));
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+
+  .team-card__frame {
+    padding: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.015);
+  }
+
+  .team-card__portrait {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+    width: min(100%, 25rem);
+    margin: 0 auto;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 32% 28%, rgba(240, 193, 82, 0.18), transparent 26%),
+      linear-gradient(180deg, rgba(58, 48, 41, 0.95), rgba(30, 24, 21, 0.98));
     overflow: hidden;
   }
 
-  .team-card img {
-    aspect-ratio: 0.85;
+  .team-card__portrait img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
-  .team-card__body {
-    padding: 1.8rem;
+  .team-card__portrait-ring {
+    display: grid;
+    place-items: center;
+    width: 72%;
+    aspect-ratio: 1;
+    border: 1px dashed rgba(240, 193, 82, 0.38);
+    border-radius: 50%;
+    padding: 2rem;
   }
 
-  .team-card__role {
-    margin: 0.35rem 0 1rem;
-    color: var(--gold);
-    font-size: 0.95rem;
+  .team-card__portrait-text {
+    color: rgba(244, 238, 231, 0.66);
+    font-size: 0.72rem;
     font-weight: 800;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.24rem;
+    line-height: 1.6;
     text-transform: uppercase;
+  }
+
+  .team-card__body {
+    display: grid;
+    justify-items: center;
+    gap: 1.15rem;
+    padding: 2rem 0 0;
+  }
+
+  .team-card__body h3 {
+    color: var(--text);
+    font-size: clamp(2.2rem, 3vw, 3rem);
+    line-height: 0.96;
+    text-transform: uppercase;
+  }
+
+  .team-card__divider {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
+    max-width: 13rem;
+  }
+
+  .team-card__divider span {
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .team-card__divider i {
+    width: 0.7rem;
+    height: 0.7rem;
+    border: 1px solid rgba(240, 193, 82, 0.42);
+    transform: rotate(45deg);
+  }
+
+  .team-card__body p {
+    max-width: 26rem;
+    color: var(--muted);
+    font-size: 1.04rem;
+    line-height: 1.85;
+  }
+
+  .team-card__body a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.9rem 1.35rem;
+    border: 1px solid rgba(217, 161, 45, 0.3);
+    border-radius: 999px;
+    background: rgba(217, 161, 45, 0.08);
+    color: var(--gold-soft);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.18rem;
+    text-transform: uppercase;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease,
+      color 180ms ease;
+  }
+
+  .team-card__body a:hover,
+  .team-card__body a:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(240, 193, 82, 0.55);
+    background: rgba(217, 161, 45, 0.14);
+    color: var(--text);
   }
 
   @media (max-width: 900px) {
     .team-grid {
       grid-template-columns: 1fr;
+    }
+
+    .team-card {
+      padding: 1.5rem 1.25rem 1.7rem;
+    }
+
+    .team-card__body {
+      padding-top: 1.6rem;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .team-card__body h3 {
+      font-size: 2rem;
+    }
+
+    .team-card__body p {
+      font-size: 0.98rem;
+      line-height: 1.74;
+    }
+
+    .team-card__body a {
+      width: 100%;
     }
   }
 </style>

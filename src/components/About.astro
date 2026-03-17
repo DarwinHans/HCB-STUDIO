@@ -3,19 +3,31 @@ import { siteConfig } from '../data/site';
 ---
 
 <section id="nosotros">
+  <div class="about__backdrop" aria-hidden="true"></div>
   <div class="container about">
     <div class="about__intro">
-      <span class="eyebrow">01</span>
+      <div class="about__index">
+        <span class="about__index-number">/ 01</span>
+        <span class="about__index-line"></span>
+      </div>
+
       <h2>{siteConfig.about.title}</h2>
-      <p class="about__kicker">{siteConfig.about.kicker}</p>
-      <div class="accent-line"></div>
+
+      <div class="about__kicker-wrap">
+        <span class="about__kicker-line"></span>
+        <p class="about__kicker">{siteConfig.about.kicker}</p>
+      </div>
     </div>
 
     <div class="about__content">
       <p class="about__lead">{siteConfig.about.lead}</p>
+
       <div class="about__columns">
-        {siteConfig.about.paragraphs.map((paragraph) => (
-          <p>{paragraph}</p>
+        {siteConfig.about.paragraphs.map((paragraph, index) => (
+          <article class="about__panel">
+            <span class="about__panel-label">0{index + 1}</span>
+            <p>{paragraph}</p>
+          </article>
         ))}
       </div>
     </div>
@@ -23,45 +35,171 @@ import { siteConfig } from '../data/site';
 </section>
 
 <style>
+  #nosotros {
+    isolation: isolate;
+    overflow: hidden;
+    padding: 7rem 0;
+    background: #120e0c;
+  }
+
+  .about__backdrop {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(10, 8, 7, 0.82) 0%, rgba(10, 8, 7, 0.68) 38%, rgba(10, 8, 7, 0.74) 100%),
+      linear-gradient(180deg, rgba(8, 7, 6, 0.18) 0%, rgba(8, 7, 6, 0.62) 100%),
+      url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1800&q=80');
+    background-position: center;
+    background-size: cover;
+    transform: scale(1.03);
+  }
+
   .about {
+    position: relative;
+    z-index: 1;
     display: grid;
-    grid-template-columns: 0.95fr 1.05fr;
-    gap: 3rem;
+    grid-template-columns: minmax(240px, 0.82fr) minmax(0, 1.18fr);
+    gap: clamp(2rem, 4vw, 5rem);
     align-items: start;
   }
 
-  .about__kicker {
-    margin-top: 1rem;
-    color: rgba(244, 238, 231, 0.68);
+  .about__intro {
+    display: grid;
+    gap: 1.5rem;
+    padding-top: 0.55rem;
+  }
+
+  .about__index {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(244, 238, 231, 0.72);
+  }
+
+  .about__index-number {
+    font-size: 0.86rem;
     font-weight: 700;
-    letter-spacing: 0.32rem;
+    letter-spacing: 0.22rem;
+    text-transform: uppercase;
+  }
+
+  .about__index-line {
+    width: 3.8rem;
+    height: 1px;
+    background: rgba(244, 238, 231, 0.32);
+  }
+
+  .about__intro h2 {
+    font-size: clamp(4rem, 10vw, 7.4rem);
+    line-height: 0.88;
+    color: #f7f0e8;
+    text-transform: uppercase;
+  }
+
+  .about__kicker-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .about__kicker-line {
+    width: 3.6rem;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), rgba(240, 193, 82, 0.15));
+  }
+
+  .about__kicker {
+    color: rgba(244, 238, 231, 0.68);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.42rem;
     text-transform: uppercase;
   }
 
   .about__content {
     display: grid;
-    gap: 2rem;
+    gap: clamp(2rem, 4vw, 3rem);
   }
 
   .about__lead {
-    color: var(--gold-soft);
+    max-width: 18ch;
+    color: #e3a82d;
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.2rem, 4.8vw, 3.7rem);
+    font-size: clamp(2.5rem, 5vw, 4.4rem);
     font-style: italic;
-    font-weight: 600;
-    line-height: 1.08;
+    font-weight: 700;
+    line-height: 0.98;
+    text-wrap: balance;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
   }
 
   .about__columns {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
+    gap: 1.4rem;
+    align-items: stretch;
+  }
+
+  .about__panel {
+    min-height: 100%;
+    padding: 1.5rem 1.6rem 1.7rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(18, 14, 12, 0.56), rgba(18, 14, 12, 0.8));
+    backdrop-filter: blur(6px);
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.24);
+  }
+
+  .about__panel-label {
+    display: inline-block;
+    margin-bottom: 0.9rem;
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.28rem;
+    text-transform: uppercase;
+  }
+
+  .about__panel p {
+    color: rgba(244, 238, 231, 0.76);
+    font-size: 1.04rem;
+    line-height: 1.85;
   }
 
   @media (max-width: 900px) {
-    .about,
+    #nosotros {
+      padding: 5.2rem 0;
+    }
+
+    .about {
+      grid-template-columns: 1fr;
+    }
+
+    .about__lead {
+      max-width: 100%;
+    }
+
     .about__columns {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .about__intro h2 {
+      font-size: clamp(3rem, 20vw, 4.6rem);
+    }
+
+    .about__kicker {
+      letter-spacing: 0.28rem;
+      line-height: 1.5;
+    }
+
+    .about__panel {
+      padding: 1.35rem 1.2rem 1.45rem;
+    }
+
+    .about__panel p {
+      font-size: 0.98rem;
+      line-height: 1.72;
     }
   }
 </style>
