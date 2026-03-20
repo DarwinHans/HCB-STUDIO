@@ -29,7 +29,7 @@ export const siteConfig = {
   instagramUrl: 'https://www.instagram.com/hcb_studio/',
   instagramHandle: '@hcb_studio',
   phone: '+56 9 5789 9062',
-  whatsappPhone: '',
+  whatsappPhone: '+56957899062',
   email: 'contacto@hcbstudio.cl',
   location: {
     streetAddress: 'Anibal Pinto 1962, Oficina 12',
@@ -281,7 +281,16 @@ export const businessJsonLd = {
     addressCountry: siteConfig.location.addressCountry,
   },
   areaServed: ['Valdivia', 'Los Rios'],
-  sameAs: [siteConfig.instagramUrl, siteConfig.bookingUrl],
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -39.8142,
+    longitude: -73.2459,
+  },
+  sameAs: [
+    siteConfig.instagramUrl,
+    siteConfig.bookingUrl,
+    'https://share.google/cLZ8omcwXJeYSf7Ts',
+  ],
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',

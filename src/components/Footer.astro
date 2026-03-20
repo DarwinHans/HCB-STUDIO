@@ -2,11 +2,12 @@
 import { siteConfig } from '../data/site';
 
 const currentYear = new Date().getFullYear();
+const waPhone = siteConfig.whatsappPhone.replace(/[^0-9]/g, '');
 ---
 
 <footer class="site-footer">
-  <div class="container site-footer__inner">
-    <div>
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
       <img
         class="site-footer__logo"
         src={siteConfig.brand.logo.src}
@@ -16,31 +17,165 @@ const currentYear = new Date().getFullYear();
         loading="lazy"
         decoding="async"
       />
-      <p>{siteConfig.brand.tagline}, Chile</p>
+      <p class="site-footer__tagline">{siteConfig.brand.tagline}</p>
+      <p class="site-footer__address">
+        {siteConfig.location.streetAddress}<br />
+        {siteConfig.location.addressLocality}, Chile
+      </p>
     </div>
+
+    <nav class="site-footer__nav" aria-label="Navegación del pie">
+      <p class="site-footer__col-title">Secciones</p>
+      {siteConfig.nav.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+
+    <div class="site-footer__contact">
+      <p class="site-footer__col-title">Contacto</p>
+      <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}>{siteConfig.phone}</a>
+      {waPhone && (
+        <a href={`https://wa.me/${waPhone}?text=Hola%20HCB%20Studio`} target="_blank" rel="noreferrer">
+          WhatsApp
+        </a>
+      )}
+      <a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer">
+        {siteConfig.instagramHandle}
+      </a>
+      <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
     <p>© {currentYear} HCB Studio. Todos los derechos reservados.</p>
+    <a class="site-footer__booking" href={siteConfig.bookingUrl} target="_blank" rel="noreferrer">
+      Reservar hora →
+    </a>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    padding: 2.5rem 0 3rem;
+    padding: 4rem 0 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
 
-  .site-footer__inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 1rem;
-    align-items: center;
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    align-items: start;
   }
 
   .site-footer__logo {
     display: block;
     width: auto;
-    height: 36px;
-    margin-bottom: 0.45rem;
+    height: 34px;
+    margin-bottom: 0.9rem;
     max-width: min(220px, 60vw);
+  }
+
+  .site-footer__tagline {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .site-footer__address {
+    color: rgba(244, 238, 231, 0.42);
+    font-size: 0.84rem;
+    line-height: 1.7;
+  }
+
+  .site-footer__col-title {
+    color: var(--gold);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.32rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .site-footer__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .site-footer__nav a {
+    color: rgba(244, 238, 231, 0.6);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 180ms ease;
+  }
+
+  .site-footer__nav a:hover {
+    color: var(--text);
+  }
+
+  .site-footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .site-footer__contact a {
+    color: rgba(244, 238, 231, 0.6);
+    font-size: 0.9rem;
+    transition: color 180ms ease;
+  }
+
+  .site-footer__contact a:hover {
+    color: var(--gold-soft);
+  }
+
+  .site-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.75rem;
+    flex-wrap: wrap;
+  }
+
+  .site-footer__bottom > p {
+    color: rgba(244, 238, 231, 0.36);
+    font-size: 0.83rem;
+  }
+
+  .site-footer__booking {
+    color: var(--gold);
+    font-size: 0.83rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 180ms ease, transform 180ms ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .site-footer__booking:hover {
+    color: var(--gold-soft);
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 760px) {
+    .site-footer__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .site-footer__brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .site-footer__grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

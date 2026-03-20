@@ -27,7 +27,7 @@ const canonical = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+    <meta name="apple-mobile-web-app-title" content="HCB Studio" />
     <link rel="canonical" href={canonical} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,6 +53,29 @@ const canonical = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
     <slot />
   </body>
 </html>
+
+<script>
+  // Scroll-triggered entrance animations
+  const els = document.querySelectorAll('[data-animate]');
+  if (els.length > 0) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            const el = e.target as HTMLElement;
+            const delay = el.style.getPropertyValue('--delay') || '0ms';
+            setTimeout(() => {
+              el.classList.add('is-visible');
+            }, parseInt(delay) || 0);
+            io.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    els.forEach((el) => io.observe(el));
+  }
+</script>
 
 <style is:global>
   :root {
@@ -214,6 +237,28 @@ const canonical = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+  }
+
+  /* Scroll animations */
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.52s ease var(--delay, 0ms),
+      transform 0.52s ease var(--delay, 0ms);
+  }
+
+  [data-animate].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-animate] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 
   @media (max-width: 900px) {

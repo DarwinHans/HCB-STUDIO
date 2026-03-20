@@ -4,14 +4,15 @@ import { siteConfig } from '../data/site';
 
 <section id="testimonios">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header" data-animate>
       <p class="eyebrow">{siteConfig.testimonials.kicker}</p>
       <h2>{siteConfig.testimonials.title}</h2>
     </div>
 
     <div class="testimonials-grid">
-      {siteConfig.testimonials.items.map((item) => (
-        <article class="card testimonial-card">
+      {siteConfig.testimonials.items.map((item, i) => (
+        <article class="card testimonial-card" data-animate style={`--delay: ${i * 100}ms`}>
+          <div class="testimonial-card__quote-mark" aria-hidden="true">"</div>
           <div class="testimonial-card__stars" aria-hidden="true">★★★★★</div>
           <p class="testimonial-card__quote">"{item.quote}"</p>
           <strong class="testimonial-card__author">{item.author}</strong>
@@ -29,32 +30,57 @@ import { siteConfig } from '../data/site';
   }
 
   .testimonial-card {
-    min-height: 15rem;
+    position: relative;
+    overflow: hidden;
     display: grid;
     align-content: start;
     gap: 1rem;
     padding: 1.75rem;
   }
 
+  .testimonial-card__quote-mark {
+    position: absolute;
+    top: -0.75rem;
+    right: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 7rem;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(217, 161, 45, 0.09);
+    pointer-events: none;
+    user-select: none;
+  }
+
   .testimonial-card__stars {
     color: var(--gold);
     letter-spacing: 0.2rem;
+    font-size: 0.9rem;
   }
 
   .testimonial-card__quote {
     color: var(--text);
     font-style: italic;
+    line-height: 1.7;
   }
 
   .testimonial-card__author {
-    margin-top: auto;
+    margin-top: 0.5rem;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.55rem;
+    color: var(--text);
   }
 
   @media (max-width: 900px) {
     .testimonials-grid {
       grid-template-columns: 1fr;
+      max-width: 32rem;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .testimonials-grid {
+      max-width: 100%;
     }
   }
 </style>

@@ -1,17 +1,19 @@
 ---
 import { siteConfig } from '../data/site';
+
+const waPhone = siteConfig.whatsappPhone.replace(/[^0-9]/g, '');
 ---
 
 <section id="ubicacion">
   <div class="container location">
     <div class="location__content">
-      <div class="section-header section-header--left">
+      <div class="section-header section-header--left" data-animate>
         <p class="eyebrow">Encuentranos</p>
         <h2>Ubicacion</h2>
       </div>
 
       <div class="location__items">
-        <article class="location-item">
+        <article class="location-item" data-animate style="--delay: 60ms">
           <div class="location-item__icon">⌖</div>
           <div>
             <h3>Direccion</h3>
@@ -20,7 +22,7 @@ import { siteConfig } from '../data/site';
           </div>
         </article>
 
-        <article class="location-item">
+        <article class="location-item" data-animate style="--delay: 120ms">
           <div class="location-item__icon">◷</div>
           <div>
             <h3>Horario</h3>
@@ -30,13 +32,20 @@ import { siteConfig } from '../data/site';
           </div>
         </article>
 
-        <article class="location-item">
+        <article class="location-item" data-animate style="--delay: 180ms">
           <div class="location-item__icon">✆</div>
           <div>
             <h3>Contacto</h3>
             <p>
               <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}>{siteConfig.phone}</a>
             </p>
+            {waPhone && (
+              <p>
+                <a href={`https://wa.me/${waPhone}?text=Hola%20HCB%20Studio`} target="_blank" rel="noreferrer">
+                  WhatsApp
+                </a>
+              </p>
+            )}
             <p>
               <a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer">
                 {siteConfig.instagramHandle}
@@ -95,6 +104,21 @@ import { siteConfig } from '../data/site';
     background: rgba(255, 255, 255, 0.05);
     color: var(--gold);
     font-weight: 900;
+  }
+
+  .location-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    color: var(--text);
+  }
+
+  .location-item a {
+    color: var(--muted);
+    transition: color 180ms ease;
+  }
+
+  .location-item a:hover {
+    color: var(--gold-soft);
   }
 
   .location__map {

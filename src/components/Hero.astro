@@ -3,7 +3,18 @@ import { siteConfig } from '../data/site';
 ---
 
 <section id="top" class="hero">
-  <div class="hero__backdrop" aria-hidden="true"></div>
+  <div class="hero__backdrop" aria-hidden="true">
+    <img
+      class="hero__bg"
+      src={siteConfig.hero.backgroundImage}
+      alt=""
+      width="1800"
+      height="1200"
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+
   <div class="container hero__layout">
     <div class="hero__copy">
       <p class="hero__eyebrow">{siteConfig.hero.eyebrow}</p>
@@ -54,11 +65,29 @@ import { siteConfig } from '../data/site';
   .hero__backdrop {
     position: absolute;
     inset: 0;
+    overflow: hidden;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 28%;
+    opacity: 0.2;
+  }
+
+  /* Gradients and grid overlay on top of the photo */
+  .hero__backdrop::after {
+    content: '';
+    position: absolute;
+    inset: 0;
     background:
-      linear-gradient(180deg, rgba(10, 9, 8, 0.86), rgba(10, 9, 8, 0.94)),
-      radial-gradient(circle at 18% 22%, rgba(217, 161, 45, 0.08), transparent 20%),
-      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      linear-gradient(180deg, rgba(10, 9, 8, 0.72) 0%, rgba(10, 9, 8, 0.92) 100%),
+      radial-gradient(circle at 18% 22%, rgba(217, 161, 45, 0.09), transparent 22%),
+      linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
     background-size: auto, auto, 120px 120px, 120px 120px;
     background-position: center, center, center, center;
   }
