@@ -4,7 +4,7 @@ import { siteConfig } from '../data/site';
 
 <section id="equipo">
   <div class="container team">
-    <div class="team__header">
+    <div class="team__header section-header" data-animate>
       <p class="eyebrow">{siteConfig.team.kicker}</p>
       <h2>
         Profesionales de <span class="gold">Elite</span>
@@ -12,24 +12,22 @@ import { siteConfig } from '../data/site';
     </div>
 
     <div class="team-grid">
-      {siteConfig.team.members.map((member) => (
-        <article class="team-card">
-          <div class="team-card__frame">
-            <div class="team-card__portrait">
-              {member.image ? (
-                <img
-                  src={member.image}
-                  alt={member.imageAlt ?? member.name}
-                  loading="lazy"
-                  width="800"
-                  height="800"
-                />
-              ) : (
-                <div class="team-card__portrait-ring">
-                  <span class="team-card__portrait-text">Imagen pendiente</span>
-                </div>
-              )}
-            </div>
+      {siteConfig.team.members.map((member, i) => (
+        <article class="team-card" data-animate style={`--delay: ${i * 120}ms`}>
+          <div class="team-card__portrait">
+            {member.image ? (
+              <img
+                src={member.image}
+                alt={member.imageAlt ?? member.name}
+                loading="lazy"
+                width="800"
+                height="800"
+              />
+            ) : (
+              <div class="team-card__portrait-ring">
+                <span class="team-card__portrait-text">Imagen pendiente</span>
+              </div>
+            )}
           </div>
 
           <div class="team-card__body">
@@ -70,26 +68,22 @@ import { siteConfig } from '../data/site';
   .team-card {
     padding: 2rem 1.7rem 2.2rem;
     border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
     background: linear-gradient(180deg, rgba(43, 35, 30, 0.94), rgba(34, 28, 24, 0.98));
     box-shadow: var(--shadow);
     text-align: center;
-  }
-
-  .team-card__frame {
-    padding: 0.9rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.015);
   }
 
   .team-card__portrait {
     display: grid;
     place-items: center;
     aspect-ratio: 1;
-    width: min(100%, 25rem);
-    margin: 0 auto;
+    width: min(100%, 22rem);
+    margin: 0 auto 2rem;
     border-radius: 50%;
+    border: 1px solid rgba(217, 161, 45, 0.18);
     background:
-      radial-gradient(circle at 32% 28%, rgba(240, 193, 82, 0.18), transparent 26%),
+      radial-gradient(circle at 32% 28%, rgba(240, 193, 82, 0.14), transparent 28%),
       linear-gradient(180deg, rgba(58, 48, 41, 0.95), rgba(30, 24, 21, 0.98));
     overflow: hidden;
   }
@@ -123,7 +117,6 @@ import { siteConfig } from '../data/site';
     display: grid;
     justify-items: center;
     gap: 1.15rem;
-    padding: 2rem 0 0;
   }
 
   .team-card__body h3 {
@@ -193,14 +186,12 @@ import { siteConfig } from '../data/site';
   @media (max-width: 900px) {
     .team-grid {
       grid-template-columns: 1fr;
+      max-width: 32rem;
+      margin: 0 auto;
     }
 
     .team-card {
       padding: 1.5rem 1.25rem 1.7rem;
-    }
-
-    .team-card__body {
-      padding-top: 1.6rem;
     }
   }
 
