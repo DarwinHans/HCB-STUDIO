@@ -202,7 +202,7 @@ export const siteConfig = {
       {
         name: 'Hernan Castillo',
         bio:
-          'Experto en perfilado de barba y tecnicas de afeitado ritual, transformando cada visita en una experiencia premium de cuidado masculino.',
+          'Experto en cortes, perfilado de barba y tecnicas de afeitado ritual, transformando cada visita en una experiencia premium de cuidado masculino, resultados que hablan solos',
         image: '/team/hernan.png',
         imageAlt: 'Hernan Castillo trabajando en un servicio de barberia',
         instagramHandle: '@hernan_hcb',
@@ -224,22 +224,20 @@ export const siteConfig = {
     kicker: 'Nuestro trabajo',
     title: 'Galeria',
     images: [
-      {
-        src: 'https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=1400&q=80',
-        alt: 'Corte de cabello masculino en barberia HCB Studio',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1512690459411-b0d9c4022c48?auto=format&fit=crop&w=900&q=80',
-        alt: 'Perfilado de barba premium en Valdivia',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=80',
-        alt: 'Detalle de fade y perfilado masculino',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=80',
-        alt: 'Herramientas de barberia premium',
-      },
+      { src: '/images/1.JPEG', alt: 'Corte de cabello masculino en HCB Studio', type: 'image' },
+      { src: '/images/2.WEBP', alt: 'Perfilado de barba premium en Valdivia', type: 'image' },
+      { src: '/images/3.JPG', alt: 'Detalle de fade y perfilado masculino', type: 'image' },
+      { src: '/images/8.MP4', alt: 'Servicio de barberia HCB Studio Valdivia', type: 'video' },
+      { src: '/images/6.PNG', alt: 'Ambiente y estilo en HCB Studio', type: 'image' },
+      { src: '/images/7.PNG', alt: 'Trabajo de barberia premium', type: 'image' },
+      { src: '/images/4.mov', alt: 'Experiencia HCB Studio Valdivia', type: 'video' },
+    ],
+  },
+  instagram: {
+    images: [
+      { src: '/images/3.JPG', alt: 'Servicio de corte en HCB Studio' },
+      { src: '/team/felipe.png', alt: 'Felipe Seguel — Barbero HCB Studio' },
+      { src: '/team/hernan.png', alt: 'Hernan Castillo — Barbero HCB Studio' },
     ],
   },
   testimonials: {

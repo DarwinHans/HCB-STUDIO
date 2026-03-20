@@ -1,10 +1,7 @@
 ---
 import { siteConfig } from '../data/site';
 
-const instagramImages = [
-  ...siteConfig.gallery.images,
-  ...siteConfig.team.members.map((member) => ({ src: member.image, alt: member.name })),
-];
+const instagramImages = siteConfig.instagram.images;
 ---
 
 <section class="instagram">
@@ -47,7 +44,7 @@ const instagramImages = [
 
   .instagram__grid {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.5rem;
   }
 
@@ -70,7 +67,7 @@ const instagramImages = [
 
   @media (max-width: 900px) {
     .instagram__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .instagram__grid a {

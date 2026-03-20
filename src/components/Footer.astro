@@ -48,8 +48,8 @@ const waPhone = siteConfig.whatsappPhone.replace(/[^0-9]/g, '');
 
   <div class="container site-footer__bottom">
     <p>© {currentYear} HCB Studio. Todos los derechos reservados.</p>
-    <a class="site-footer__booking" href={siteConfig.bookingUrl} target="_blank" rel="noreferrer">
-      Reservar hora →
+    <a class="site-footer__credit" href="https://nbow.io" target="_blank" rel="noreferrer">
+      Hecho por nbow.io
     </a>
   </div>
 </footer>
@@ -145,21 +145,17 @@ const waPhone = siteConfig.whatsappPhone.replace(/[^0-9]/g, '');
     font-size: 0.83rem;
   }
 
-  .site-footer__booking {
-    color: var(--gold);
+  .site-footer__credit {
+    color: rgba(244, 238, 231, 0.3);
     font-size: 0.83rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    transition: color 180ms ease, transform 180ms ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
+    font-weight: 500;
+    transition: color 180ms ease;
+    /* offset derecho para que el botón flotante de WhatsApp no lo tape */
+    padding-right: 5.5rem;
   }
 
-  .site-footer__booking:hover {
-    color: var(--gold-soft);
-    transform: translateX(3px);
+  .site-footer__credit:hover {
+    color: rgba(244, 238, 231, 0.6);
   }
 
   @media (max-width: 760px) {
@@ -170,6 +166,12 @@ const waPhone = siteConfig.whatsappPhone.replace(/[^0-9]/g, '');
 
     .site-footer__brand {
       grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .site-footer__credit {
+      padding-right: 4.5rem;
     }
   }
 
