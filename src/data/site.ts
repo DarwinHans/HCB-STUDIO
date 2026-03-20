@@ -30,7 +30,6 @@ export const siteConfig = {
   instagramHandle: '@hcb_studio',
   phone: '+56 9 5789 9062',
   whatsappPhone: '+56957899062',
-  email: 'contacto@hcbstudio.cl',
   location: {
     streetAddress: 'Anibal Pinto 1962, Oficina 12',
     addressLocality: 'Valdivia',
