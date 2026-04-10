@@ -28,8 +28,8 @@ export const siteConfig = {
   bookingUrl: 'https://hcbstudio.site.agendapro.com/cl/sucursal/135553',
   instagramUrl: 'https://www.instagram.com/hcb_studio/',
   instagramHandle: '@hcb_studio',
-  phone: '+56 9 5789 9062',
-  whatsappPhone: '+56957899062',
+  phone: '+56 9 8642 6840',
+  whatsappPhone: '+56986426840',
   location: {
     streetAddress: 'Anibal Pinto 1962, Oficina 12',
     addressLocality: 'Valdivia',
