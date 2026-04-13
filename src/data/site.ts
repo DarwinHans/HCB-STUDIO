@@ -3,7 +3,7 @@ export const siteConfig = {
   brand: {
     name: 'HCB Studio',
     shortName: 'HCB',
-    tagline: 'Barberia premium en Valdivia',
+    tagline: 'Barbería premium en Valdivia',
     logo: {
       src: '/logo.svg',
       alt: 'HCB Studio',
@@ -12,18 +12,18 @@ export const siteConfig = {
     },
   },
   seo: {
-    title: 'HCB Studio | Barberia premium en Valdivia',
+    title: 'HCB Studio | Barbería premium en Valdivia',
     description:
-      'Barberia premium en Valdivia con cortes de cabello, perfilado de barba y experiencia personalizada. Reserva tu hora en HCB Studio.',
+      'Barbería premium en Valdivia con cortes de cabello, perfilado de barba y experiencia personalizada. Reserva tu hora en HCB Studio.',
     keywords: [
-      'barberia valdivia',
-      'barberia en valdivia',
+      'barbería valdivia',
+      'barbería en valdivia',
       'barbero valdivia',
       'corte de cabello hombre valdivia',
       'perfilado de barba valdivia',
-      'barberia premium valdivia',
+      'barbería premium valdivia',
     ],
-    ogImage: '/og-image.svg',
+    ogImage: '/og-image.png',
   },
   bookingUrl: 'https://hcbstudio.site.agendapro.com/cl/sucursal/135553',
   instagramUrl: 'https://www.instagram.com/hcb_studio/',
@@ -41,32 +41,32 @@ export const siteConfig = {
   },
   hours: [
     'Lunes a viernes: 10:00 - 19:30',
-    'Sabado: 11:00 - 13:30',
+    'Sábado: 11:00 - 13:30',
     'Domingo: Cerrado',
   ],
   nav: [
     { label: 'Nosotros', href: '#nosotros' },
     { label: 'Servicios', href: '#servicios' },
     { label: 'Equipo', href: '#equipo' },
-    { label: 'Galeria', href: '#galeria' },
+    { label: 'Galería', href: '#galeria' },
     { label: 'Testimonios', href: '#testimonios' },
-    { label: 'Ubicacion', href: '#ubicacion' },
+    { label: 'Ubicación', href: '#ubicacion' },
   ],
   hero: {
-    eyebrow: 'Barberia premium en Valdivia',
+    eyebrow: 'Barbería premium en Valdivia',
     title: ['HCB', 'Studio'],
     description:
-      'Servicio personalizado que entrega seguridad y confianza a traves de un buen corte de cabello, perfilado de barba y asesoramiento de imagen masculina.',
+      'Servicio personalizado que entrega seguridad y confianza a través de un buen corte de cabello, perfilado de barba y asesoramiento de imagen masculina.',
     primaryCta: 'Reserva tu hora',
     secondaryCta: 'Ver servicios',
     backgroundImage:
       'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1800&q=80',
   },
   about: {
-    kicker: 'La practica hace la perfeccion',
+    kicker: 'La práctica hace la perfección',
     title: 'Nosotros',
     lead:
-      'Nuestra filosofia en HCB Studio es entregar una experiencia unica a cada cliente, a traves de un servicio de excelencia dedicado minuciosamente.',
+      'Nuestra filosofía en HCB Studio es entregar una experiencia única a cada cliente, a través de un servicio de excelencia dedicado minuciosamente.',
     paragraphs: [
       'Para conseguir esto, nuestro primer objetivo fue ponernos en el lugar de cada cliente. Con eso conseguimos entender la necesidad y el servicio esperado.',
       'Trabajamos diariamente en perfeccionarnos, abiertos a escuchar, aprender y seguir creciendo para alcanzar cortes y perfiles que se vean tan bien como se sienten.',
@@ -92,7 +92,7 @@ export const siteConfig = {
           duration: '1 hr',
           price: '$17.000',
           description:
-            'Corte de cabello con estudio de estructura craneal y perfilado de cejas para un acabado mas limpio y definido.',
+            'Corte de cabello con estudio de estructura craneal y perfilado de cejas para un acabado más limpio y definido.',
           image:
             'https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1200&q=80',
         },
@@ -106,16 +106,16 @@ export const siteConfig = {
             'https://images.unsplash.com/photo-1503951458645-643d53bfd90f?auto=format&fit=crop&w=1200&q=80',
         },
         {
-          name: 'Perfilado de corte mas perfilado de barba simple',
+          name: 'Perfilado de corte más perfilado de barba simple',
           duration: '45 min',
           price: '$18.000',
           description:
-            'Limpieza de contorno de corte de cabello en patilla y nuca, complementado con perfilado de barba simple realizado con maquinas.',
+            'Limpieza de contorno de corte de cabello en patilla y nuca, complementado con perfilado de barba simple realizado con máquinas.',
           image:
             'https://images.unsplash.com/photo-1512690459411-b0d9c4022c48?auto=format&fit=crop&w=1200&q=80',
         },
         {
-          name: 'Corte de cabello mas perfilado de barba simple',
+          name: 'Corte de cabello más perfilado de barba simple',
           duration: '1 hr 30 min',
           price: '$23.000',
           description:
@@ -124,7 +124,7 @@ export const siteConfig = {
             'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1200&q=80',
         },
         {
-          name: 'Corte de cabello mas perfilado de barba ritual',
+          name: 'Corte de cabello más perfilado de barba ritual',
           duration: '2 hrs',
           price: '$28.000',
           description:
@@ -133,7 +133,7 @@ export const siteConfig = {
             'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1200&q=80',
         },
         {
-          name: 'Corte de cabello, perfilado de barba ritual mas perfilado de cejas',
+          name: 'Corte de cabello, perfilado de barba ritual más perfilado de cejas',
           duration: '2 hrs',
           price: '$30.000',
           description:
@@ -142,7 +142,7 @@ export const siteConfig = {
             'https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1200&q=80',
         },
         {
-          name: 'Corte de cabello, perfilado de barba simple mas perfilado de cejas',
+          name: 'Corte de cabello, perfilado de barba simple más perfilado de cejas',
           duration: '2 hrs',
           price: '$28.000',
           description:
@@ -162,7 +162,7 @@ export const siteConfig = {
           duration: '45 min',
           price: '$11.000',
           description:
-            'Perfilado de barba simple realizado con maquinas, definido para una apariencia limpia y precisa.',
+            'Perfilado de barba simple realizado con máquinas, definido para una apariencia limpia y precisa.',
           image:
             'https://images.unsplash.com/photo-1512690459411-b0d9c4022c48?auto=format&fit=crop&w=1200&q=80',
         },
@@ -171,7 +171,7 @@ export const siteConfig = {
           duration: '1 hr',
           price: '$14.000',
           description:
-            'Perfilado con toallas calientes, precision en contornos y acabado pensado para destacar tus facciones.',
+            'Perfilado con toallas calientes, precisión en contornos y acabado pensado para destacar tus facciones.',
           image:
             'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1200&q=80',
         },
@@ -196,14 +196,14 @@ export const siteConfig = {
   ],
   team: {
     kicker: 'Nuestro equipo',
-    title: 'Profesionales de Elite',
+    title: 'Profesionales de Élite',
     members: [
       {
-        name: 'Hernan Castillo',
+        name: 'Hernán Castillo',
         bio:
-          'Experto en cortes, perfilado de barba y tecnicas de afeitado ritual, transformando cada visita en una experiencia premium de cuidado masculino, resultados que hablan solos',
+          'Experto en cortes, perfilado de barba y técnicas de afeitado ritual, transformando cada visita en una experiencia premium de cuidado masculino, resultados que hablan solos',
         image: '/team/hernan.png',
-        imageAlt: 'Hernan Castillo trabajando en un servicio de barberia',
+        imageAlt: 'Hernán Castillo trabajando en un servicio de barbería',
         instagramHandle: '@hernan_hcb',
         instagramUrl:
           'https://www.instagram.com/hernan_hcb?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn8Vdg4I0CCBmXEXMC1VPfzvUuOaG2w_Z9vMWUU5_dUt2XpUTGVK_Rj6TnPis_aem_t2JbeB-W24GOIPHfgHkCLw',
@@ -211,7 +211,7 @@ export const siteConfig = {
       {
         name: 'Felipe Seguel',
         bio:
-          'Especialista en cortes clasicos y modernos con enfoque en detalle, precision y una experiencia cercana para cada cliente.',
+          'Especialista en cortes clásicos y modernos con enfoque en detalle, precisión y una experiencia cercana para cada cliente.',
         image: '/team/felipe.png',
         imageAlt: 'Felipe Seguel realizando un corte de cabello',
         instagramHandle: '@felipeignacio.barbero',
@@ -221,14 +221,14 @@ export const siteConfig = {
   },
   gallery: {
     kicker: 'Nuestro trabajo',
-    title: 'Galeria',
+    title: 'Galería',
     images: [
       { src: '/images/1.JPEG', alt: 'Corte de cabello masculino en HCB Studio', type: 'image' },
       { src: '/images/2.WEBP', alt: 'Perfilado de barba premium en Valdivia', type: 'image' },
       { src: '/images/3.JPG', alt: 'Detalle de fade y perfilado masculino', type: 'image' },
-      { src: '/images/8.MP4', alt: 'Servicio de barberia HCB Studio Valdivia', type: 'video' },
+      { src: '/images/8.MP4', alt: 'Servicio de barbería HCB Studio Valdivia', type: 'video' },
       { src: '/images/6.PNG', alt: 'Ambiente y estilo en HCB Studio', type: 'image' },
-      { src: '/images/7.PNG', alt: 'Trabajo de barberia premium', type: 'image' },
+      { src: '/images/7.PNG', alt: 'Trabajo de barbería premium', type: 'image' },
       { src: '/images/4.mov', alt: 'Experiencia HCB Studio Valdivia', type: 'video' },
     ],
   },
@@ -236,7 +236,7 @@ export const siteConfig = {
     images: [
       { src: '/images/3.JPG', alt: 'Servicio de corte en HCB Studio' },
       { src: '/team/felipe.png', alt: 'Felipe Seguel — Barbero HCB Studio' },
-      { src: '/team/hernan.png', alt: 'Hernan Castillo — Barbero HCB Studio' },
+      { src: '/team/hernan.png', alt: 'Hernán Castillo — Barbero HCB Studio' },
     ],
   },
   testimonials: {
@@ -245,17 +245,17 @@ export const siteConfig = {
     items: [
       {
         quote:
-          'Excelente barberia. Muy buena atencion. Totalmente recomendada.',
+          'Excelente barbería. Muy buena atención. Totalmente recomendada.',
         author: 'Felipe Coronado Medina',
       },
       {
         quote:
-          'El mejor barbero de Valdivia. Perfecta atencion y dedicacion. Nada que decir, 10/10.',
-        author: 'Antonio Munoz',
+          'El mejor barbero de Valdivia. Perfecta atención y dedicación. Nada que decir, 10/10.',
+        author: 'Antonio Muñoz',
       },
       {
-        quote: 'Excelente atencion.',
-        author: 'Matias Sepulveda',
+        quote: 'Excelente atención.',
+        author: 'Matías Sepúlveda',
       },
     ],
   },
