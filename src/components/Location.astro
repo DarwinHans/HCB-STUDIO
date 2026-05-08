@@ -51,9 +51,11 @@ const waPhone = siteConfig.whatsappPhone.replace(/[^0-9]/g, '');
                 {siteConfig.instagramHandle}
               </a>
             </p>
-            <p>
-              <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-            </p>
+            {siteConfig.email && (
+              <p>
+                <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+              </p>
+            )}
           </div>
         </article>
       </div>

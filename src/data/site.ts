@@ -5,16 +5,16 @@ export const siteConfig = {
     shortName: 'HCB',
     tagline: 'Barbería premium en Valdivia',
     logo: {
-      src: '/logo.svg',
+      src: '/logo.webp',
       alt: 'HCB Studio',
-      width: 220,
-      height: 60,
+      width: 200,
+      height: 200,
     },
   },
   seo: {
-    title: 'HCB Studio | Barbería premium en Valdivia',
+    title: 'HCB Studio Valdivia · Barbería Premium · Cortes y Perfilado de Barba',
     description:
-      'Barbería premium en Valdivia con cortes de cabello, perfilado de barba y experiencia personalizada. Reserva tu hora en HCB Studio.',
+      'Barbería premium en Valdivia. Cortes de cabello, perfilado de barba y experiencia personalizada. Aníbal Pinto 1962, Oficina 12. Reserva tu hora en HCB Studio.',
     keywords: [
       'barbería valdivia',
       'barbería en valdivia',
@@ -268,7 +268,6 @@ export const businessJsonLd = {
   image: `${siteConfig.siteUrl}${siteConfig.seo.ogImage}`,
   url: siteConfig.siteUrl,
   telephone: siteConfig.phone,
-  email: siteConfig.email,
   address: {
     '@type': 'PostalAddress',
     streetAddress: siteConfig.location.streetAddress,

@@ -42,7 +42,9 @@ const waPhone = siteConfig.whatsappPhone.replace(/[^0-9]/g, '');
       <a href={siteConfig.instagramUrl} target="_blank" rel="noreferrer">
         {siteConfig.instagramHandle}
       </a>
-      <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+      {siteConfig.email && (
+        <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+      )}
     </div>
   </div>
 

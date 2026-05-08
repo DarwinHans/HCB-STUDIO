@@ -14,12 +14,15 @@ import { siteConfig } from '../data/site';
         <figure class:list={['gallery-item', `gallery-item--${index + 1}`]}>
           {item.type === 'video' ? (
             <video
-              src={item.src}
-              autoplay
+              data-src={item.src}
+              preload="none"
               muted
               loop
               playsinline
               aria-label={item.alt}
+              width="900"
+              height="1200"
+              class="gallery-video"
             />
           ) : (
             <img src={item.src} alt={item.alt} loading="lazy" width="900" height="1200" />
@@ -29,6 +32,29 @@ import { siteConfig } from '../data/site';
     </div>
   </div>
 </section>
+
+<script>
+  const videos = document.querySelectorAll<HTMLVideoElement>('video.gallery-video');
+  if (videos.length > 0 && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            if (!video.src && video.dataset.src) {
+              video.src = video.dataset.src;
+            }
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { rootMargin: '200px 0px', threshold: 0.1 }
+    );
+    videos.forEach((v) => io.observe(v));
+  }
+</script>
 
 <style>
   .gallery-grid {
