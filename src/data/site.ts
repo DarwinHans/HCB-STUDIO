@@ -81,7 +81,7 @@ export const siteConfig = {
         {
           name: 'Corte de cabello',
           duration: '1 hr',
-          price: '$15.000',
+          price: '$16.000',
           description:
             'Corte de cabello con previo estudio de estructura craneal para estilizar y rejuvenecer tu apariencia.',
           image:
@@ -90,7 +90,7 @@ export const siteConfig = {
         {
           name: 'Corte de cabello + ceja',
           duration: '1 hr',
-          price: '$17.000',
+          price: '$18.000',
           description:
             'Corte de cabello con estudio de estructura craneal y perfilado de cejas para un acabado más limpio y definido.',
           image:
@@ -99,7 +99,7 @@ export const siteConfig = {
         {
           name: 'Perfilado de corte',
           duration: '30 min',
-          price: '$9.000',
+          price: '$10.000',
           description:
             'Limpieza de contorno de corte de cabello, definiendo terminaciones en patilla y nuca para refrescar tu estilo.',
           image:
@@ -108,7 +108,7 @@ export const siteConfig = {
         {
           name: 'Perfilado de corte más perfilado de barba simple',
           duration: '45 min',
-          price: '$18.000',
+          price: '$19.000',
           description:
             'Limpieza de contorno de corte de cabello en patilla y nuca, complementado con perfilado de barba simple realizado con máquinas.',
           image:
@@ -117,7 +117,7 @@ export const siteConfig = {
         {
           name: 'Corte de cabello más perfilado de barba simple',
           duration: '1 hr 30 min',
-          price: '$23.000',
+          price: '$24.000',
           description:
             'Corte de cabello con previo estudio de estructura craneal que ayude a estilizar y rejuvenecer tu apariencia, junto a perfilado de barba simple.',
           image:
@@ -126,7 +126,7 @@ export const siteConfig = {
         {
           name: 'Corte de cabello más perfilado de barba ritual',
           duration: '2 hrs',
-          price: '$28.000',
+          price: '$29.000',
           description:
             'Corte de cabello con previo estudio de estructura craneal y ritual de barba premium para una experiencia completa de cuidado masculino.',
           image:
@@ -135,7 +135,7 @@ export const siteConfig = {
         {
           name: 'Corte de cabello, perfilado de barba ritual más perfilado de cejas',
           duration: '2 hrs',
-          price: '$30.000',
+          price: '$31.000',
           description:
             'Servicio integral con corte de cabello, perfilado de barba ritual y perfilado de cejas, incluyendo peinado y terminaciones de alto detalle.',
           image:
@@ -158,20 +158,38 @@ export const siteConfig = {
       icon: '✦',
       services: [
         {
+          name: 'Perfilado de barba simple + ceja',
+          duration: '45 min',
+          price: '$14.000',
+          description:
+            'Perfilado de barba simple con máquinas, complementado con perfilado de ceja para un acabado limpio y armonioso.',
+          image:
+            'https://images.unsplash.com/photo-1512690459411-b0d9c4022c48?auto=format&fit=crop&w=1200&q=80',
+        },
+        {
           name: 'Perfilado de barba simple',
           duration: '45 min',
-          price: '$11.000',
+          price: '$12.000',
           description:
             'Perfilado de barba simple realizado con máquinas, definido para una apariencia limpia y precisa.',
           image:
             'https://images.unsplash.com/photo-1512690459411-b0d9c4022c48?auto=format&fit=crop&w=1200&q=80',
         },
         {
-          name: 'Perfilado premium',
+          name: 'Perfilado de barba ritual + ceja',
           duration: '1 hr',
-          price: '$14.000',
+          price: '$18.000',
           description:
-            'Perfilado con toallas calientes, precisión en contornos y acabado pensado para destacar tus facciones.',
+            'Perfilado de barba ritual con toallas calientes, navaja y acabado premium, complementado con perfilado de ceja para una imagen completa.',
+          image:
+            'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1200&q=80',
+        },
+        {
+          name: 'Perfilado de barba ritual',
+          duration: '1 hr',
+          price: '$16.000',
+          description:
+            'Perfilado de barba ritual con toallas calientes, vapor frío y afeitado con navaja para un acabado premium pensado para destacar tus facciones.',
           image:
             'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1200&q=80',
         },
