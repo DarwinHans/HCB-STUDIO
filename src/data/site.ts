@@ -14,7 +14,7 @@ export const siteConfig = {
   seo: {
     title: 'HCB Studio Valdivia · Barbería Premium · Cortes y Perfilado de Barba',
     description:
-      'Barbería premium en Valdivia. Cortes de cabello, perfilado de barba y experiencia personalizada. Aníbal Pinto 1962, Oficina 12. Reserva tu hora en HCB Studio.',
+      'Barbería premium en Valdivia. Cortes de cabello, perfilado de barba y experiencia personalizada. Aníbal Pinto 1962. Reserva tu hora en HCB Studio.',
     keywords: [
       'barbería valdivia',
       'barbería en valdivia',
@@ -31,13 +31,13 @@ export const siteConfig = {
   phone: '+56 9 8642 6840',
   whatsappPhone: '+56986426840',
   location: {
-    streetAddress: 'Anibal Pinto 1962, Oficina 12',
+    streetAddress: 'Anibal Pinto 1962',
     addressLocality: 'Valdivia',
     addressRegion: 'Los Rios',
     postalCode: '5111002',
     addressCountry: 'CL',
     mapEmbedUrl:
-      'https://www.google.com/maps?q=Anibal%20Pinto%201962%20Oficina%2012%2C%20Valdivia%2C%20Chile&output=embed',
+      'https://www.google.com/maps?q=Anibal%20Pinto%201962%2C%20Valdivia%2C%20Chile&output=embed',
   },
   hours: [
     'Lunes a viernes: 10:00 - 19:30',
@@ -53,8 +53,8 @@ export const siteConfig = {
     { label: 'Ubicación', href: '#ubicacion' },
   ],
   hero: {
-    eyebrow: 'Barbería premium en Valdivia',
-    title: ['HCB', 'Studio'],
+    eyebrow: 'HCB Studio · Barbería Premium',
+    title: ['Barbería', 'en Valdivia'],
     description:
       'Servicio personalizado que entrega seguridad y confianza a través de un buen corte de cabello, perfilado de barba y asesoramiento de imagen masculina.',
     primaryCta: 'Reserva tu hora',
@@ -63,8 +63,8 @@ export const siteConfig = {
       'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1800&q=80',
   },
   about: {
-    kicker: 'La práctica hace la perfección',
-    title: 'Nosotros',
+    kicker: 'Nosotros · La práctica hace la perfección',
+    title: 'Barbería en Valdivia',
     lead:
       'Nuestra filosofía en HCB Studio es entregar una experiencia única a cada cliente, a través de un servicio de excelencia dedicado minuciosamente.',
     paragraphs: [
@@ -219,7 +219,7 @@ export const siteConfig = {
       {
         name: 'Hernán Castillo',
         bio:
-          'Experto en cortes, perfilado de barba y técnicas de afeitado ritual, transformando cada visita en una experiencia premium de cuidado masculino, resultados que hablan solos',
+          'Barbero en Valdivia, experto en cortes, perfilado de barba y técnicas de afeitado ritual, transformando cada visita en una experiencia premium de cuidado masculino, resultados que hablan solos.',
         image: '/team/hernan.png',
         imageAlt: 'Hernán Castillo trabajando en un servicio de barbería',
         instagramHandle: '@hernan_hcb',
@@ -229,7 +229,7 @@ export const siteConfig = {
       {
         name: 'Felipe Seguel',
         bio:
-          'Especialista en cortes clásicos y modernos con enfoque en detalle, precisión y una experiencia cercana para cada cliente.',
+          'Barbero en Valdivia, especialista en cortes clásicos y modernos con enfoque en detalle, precisión y una experiencia cercana para cada cliente.',
         image: '/team/felipe.png',
         imageAlt: 'Felipe Seguel realizando un corte de cabello',
         instagramHandle: '@felipeignacio.barbero',
