@@ -214,7 +214,7 @@ export const siteConfig = {
   ],
   team: {
     kicker: 'Nuestro equipo',
-    title: 'Profesionales de Élite',
+    title: ['Tu Barbero', 'en Valdivia'],
     members: [
       {
         name: 'Hernán Castillo',
@@ -226,15 +226,6 @@ export const siteConfig = {
         instagramUrl:
           'https://www.instagram.com/hernan_hcb?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn8Vdg4I0CCBmXEXMC1VPfzvUuOaG2w_Z9vMWUU5_dUt2XpUTGVK_Rj6TnPis_aem_t2JbeB-W24GOIPHfgHkCLw',
       },
-      {
-        name: 'Felipe Seguel',
-        bio:
-          'Barbero en Valdivia, especialista en cortes clásicos y modernos con enfoque en detalle, precisión y una experiencia cercana para cada cliente.',
-        image: '/team/felipe.png',
-        imageAlt: 'Felipe Seguel realizando un corte de cabello',
-        instagramHandle: '@felipeignacio.barbero',
-        instagramUrl: 'https://www.instagram.com/felipeignacio.barbero/',
-      },
     ],
   },
   gallery: {
@@ -244,16 +235,14 @@ export const siteConfig = {
       { src: '/images/1.JPEG', alt: 'Corte de cabello masculino en HCB Studio', type: 'image' },
       { src: '/images/2.WEBP', alt: 'Perfilado de barba premium en Valdivia', type: 'image' },
       { src: '/images/3.JPG', alt: 'Detalle de fade y perfilado masculino', type: 'image' },
-      { src: '/images/8.MP4', alt: 'Servicio de barbería HCB Studio Valdivia', type: 'video' },
       { src: '/images/6.PNG', alt: 'Ambiente y estilo en HCB Studio', type: 'image' },
       { src: '/images/7.PNG', alt: 'Trabajo de barbería premium', type: 'image' },
-      { src: '/images/4.mov', alt: 'Experiencia HCB Studio Valdivia', type: 'video' },
     ],
   },
   instagram: {
     images: [
       { src: '/images/3.JPG', alt: 'Servicio de corte en HCB Studio' },
-      { src: '/team/felipe.png', alt: 'Felipe Seguel — Barbero HCB Studio' },
+      { src: '/images/2.WEBP', alt: 'Perfilado de barba premium en HCB Studio Valdivia' },
       { src: '/team/hernan.png', alt: 'Hernán Castillo — Barbero HCB Studio' },
     ],
   },

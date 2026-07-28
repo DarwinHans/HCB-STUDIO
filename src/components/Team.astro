@@ -7,7 +7,7 @@ import { siteConfig } from '../data/site';
     <div class="team__header section-header" data-animate>
       <p class="eyebrow">{siteConfig.team.kicker}</p>
       <h2>
-        Profesionales de <span class="gold">Elite</span>
+        {siteConfig.team.title[0]} <span class="gold">{siteConfig.team.title[1]}</span>
       </h2>
     </div>
 
@@ -63,6 +63,12 @@ import { siteConfig } from '../data/site';
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
+  }
+
+  /* Con un solo barbero la grilla de 2 columnas deja un hueco a la derecha */
+  .team-grid:has(.team-card:only-child) {
+    grid-template-columns: minmax(0, 32rem);
+    justify-content: center;
   }
 
   .team-card {
