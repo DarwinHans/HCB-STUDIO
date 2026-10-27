@@ -95,15 +95,9 @@ import { siteConfig } from '../data/site';
 
   /* items 2–5: llenan las 4 celdas restantes de las columnas 2–3 */
 
-  /* filas 3–4, espejo del bloque superior: item 6 alto a la derecha,
-     7–8 en la fila 3 y el 9 ancho en la fila 4 */
-  .gallery-item--6 {
-    grid-column: 3;
-    grid-row: 3 / span 2;
-  }
-
-  .gallery-item--9 {
-    grid-column: 1 / span 2;
+  /* fila 3: item 6 normal y el 7 ancho en las columnas 2–3 */
+  .gallery-item--7 {
+    grid-column: 2 / span 2;
   }
 
   @media (max-width: 900px) {
@@ -117,10 +111,8 @@ import { siteConfig } from '../data/site';
       grid-row: auto;
     }
 
-    .gallery-item--6,
-    .gallery-item--9 {
+    .gallery-item--7 {
       grid-column: auto;
-      grid-row: auto;
     }
 
     .gallery-item img,

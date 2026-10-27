@@ -234,18 +234,8 @@ export const siteConfig = {
     images: [
       { src: '/images/1.webp', alt: 'Corte de cabello masculino en HCB Studio', type: 'image' },
       { src: '/images/2.webp', alt: 'Perfilado de barba premium en Valdivia', type: 'image' },
-      { src: '/images/3.webp', alt: 'Detalle de fade y perfilado masculino', type: 'image' },
       { src: '/images/6.webp', alt: 'Ambiente y estilo en HCB Studio', type: 'image' },
-      {
-        src: '/images/hcb-interior-sillon-v1.webp',
-        alt: 'Interior actual de HCB Studio con sillón de barbería',
-        type: 'image',
-      },
-      {
-        src: '/images/hcb-diseno-capilar-v1.webp',
-        alt: 'Diseño capilar realizado en HCB Studio Valdivia',
-        type: 'image',
-      },
+      { src: '/images/7.webp', alt: 'Trabajo de barbería premium', type: 'image' },
       {
         src: '/images/hcb-estacion-trabajo-v1.webp',
         alt: 'Estación de trabajo actual de HCB Studio',
@@ -256,12 +246,16 @@ export const siteConfig = {
         alt: 'Rincón de café para clientes de HCB Studio',
         type: 'image',
       },
-      { src: '/images/7.webp', alt: 'Trabajo de barbería premium', type: 'image' },
+      {
+        src: '/images/hcb-interior-sillon-v1.webp',
+        alt: 'Interior actual de HCB Studio con sillón de barbería',
+        type: 'image',
+      },
     ],
   },
   instagram: {
     images: [
-      { src: '/images/3.webp', alt: 'Servicio de corte en HCB Studio' },
+      { src: '/images/hcb-interior-sillon-v1.webp', alt: 'Interior actual de HCB Studio con sillón de barbería' },
       { src: '/images/2.webp', alt: 'Perfilado de barba premium en HCB Studio Valdivia' },
       { src: '/team/hernan.webp', alt: 'Hernán Castillo — Barbero HCB Studio' },
     ],
